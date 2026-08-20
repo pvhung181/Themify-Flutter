@@ -1,0 +1,19 @@
+{
+  "@@locale": "en",
+  "themes": "Themes",
+  "widgets": "Widgets",
+  "icons": "Icons",
+  "wallpapers": "Wallpapers",
+  "minute": "Minute",
+  "photo_refresh": "Photo Refresh",
+  "show_temperature_in": "Show temperature in",
+  "time_format": "Time format",
+  "help": "Help",
+  "languages": "Languages",
+  "rate_app": "Rate app",
+  "share_app": "Share app",
+  "feedback": "Feedback",
+  "privacy_policy": "Privacy policy",
+  "settings": "Settings"
+
+}
