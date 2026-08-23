@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:themify/data/di/di.dart';
 
-void main() {
+void main() async {
+  await configDependencies();
   runApp(const MyApp());
 }
 

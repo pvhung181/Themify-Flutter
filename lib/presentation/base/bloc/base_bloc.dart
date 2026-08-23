@@ -4,7 +4,7 @@ import 'base_bloc_event.dart';
 import 'base_bloc_state.dart';
 
 abstract class BaseBloc<E extends BaseBlocEvent, S extends BaseBlocState>
-    extends BaseBlocDelegate {
+    extends BaseBlocDelegate<E, S> {
   BaseBloc(super.initialState);
 }
 

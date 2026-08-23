@@ -10,7 +10,7 @@ abstract class AppEvent extends BaseBlocEvent {
 }
 
 @freezed
-class AppThemeChanged extends AppEvent with _$AppThemeChanged {
+abstract class AppThemeChanged extends AppEvent with _$AppThemeChanged {
   const AppThemeChanged._();
 
   const factory AppThemeChanged({
@@ -19,7 +19,7 @@ class AppThemeChanged extends AppEvent with _$AppThemeChanged {
 }
 
 @freezed
-class AppLanguageChanged extends AppEvent with _$AppLanguageChanged {
+abstract class AppLanguageChanged extends AppEvent with _$AppLanguageChanged {
   const AppLanguageChanged._();
 
   const factory AppLanguageChanged({
@@ -28,7 +28,7 @@ class AppLanguageChanged extends AppEvent with _$AppLanguageChanged {
 }
 
 @freezed
-class AppInitiated extends AppEvent with _$AppInitiated {
+abstract class AppInitiated extends AppEvent with _$AppInitiated {
   const AppInitiated._();
 
   const factory AppInitiated() = _AppInitiated;

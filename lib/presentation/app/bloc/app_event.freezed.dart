@@ -282,12 +282,12 @@ $AppLanguageChangedCopyWith<AppLanguageChanged> get copyWith => _$AppLanguageCha
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLanguageChanged&&const DeepCollectionEquality().equals(other.languageCode, languageCode));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLanguageChanged&&(identical(other.languageCode, languageCode) || other.languageCode == languageCode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(languageCode));
+int get hashCode => Object.hash(runtimeType,languageCode);
 
 @override
 String toString() {
@@ -319,9 +319,9 @@ class _$AppLanguageChangedCopyWithImpl<$Res>
 
 /// Create a copy of AppLanguageChanged
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? languageCode = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? languageCode = null,}) {
   return _then(_self.copyWith(
-languageCode: freezed == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable
+languageCode: null == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable
 as LanguageCode,
   ));
 }
@@ -478,12 +478,12 @@ _$AppLanguageChangedCopyWith<_AppLanguageChanged> get copyWith => __$AppLanguage
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLanguageChanged&&const DeepCollectionEquality().equals(other.languageCode, languageCode));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLanguageChanged&&(identical(other.languageCode, languageCode) || other.languageCode == languageCode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(languageCode));
+int get hashCode => Object.hash(runtimeType,languageCode);
 
 @override
 String toString() {
@@ -515,9 +515,9 @@ class __$AppLanguageChangedCopyWithImpl<$Res>
 
 /// Create a copy of AppLanguageChanged
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? languageCode = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? languageCode = null,}) {
   return _then(_AppLanguageChanged(
-languageCode: freezed == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable
+languageCode: null == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable
 as LanguageCode,
   ));
 }

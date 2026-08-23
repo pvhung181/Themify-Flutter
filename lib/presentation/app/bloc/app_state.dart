@@ -6,7 +6,7 @@ import '../../../domain/entity/enum/language_code.dart';
 part 'app_state.freezed.dart';
 
 @freezed
-class AppState extends BaseBlocState with _$AppState {
+abstract class AppState extends BaseBlocState with _$AppState {
   const AppState._();
 
   const factory AppState({
