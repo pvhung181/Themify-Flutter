@@ -98,7 +98,7 @@ class AppNavigatorImpl extends AppNavigator  {
   }
 
   @override
-  Future<bool> pop<T extends Object?>({T? result, bool useRootNavigator = false}) {
+  Future<void> pop<T extends Object?>({T? result, bool useRootNavigator = false}) async {
     return useRootNavigator
         ? _appRouter.pop<T>(result)
         : _currentTabRouterOrRootRouter.pop<T>(result);

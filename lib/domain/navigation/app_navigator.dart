@@ -22,7 +22,7 @@ abstract class AppNavigator {
 
   Future<void> replaceAll(List<AppRouteInfo> listAppRouteInfo);
 
-  Future<bool> pop<T extends Object?>({
+  Future<void> pop<T extends Object?>({
     T? result,
     bool useRootNavigator = false,
   });

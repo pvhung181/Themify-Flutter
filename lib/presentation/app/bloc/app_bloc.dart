@@ -1,9 +1,11 @@
+import 'package:injectable/injectable.dart';
 import 'package:themify/domain/use_case/save_language_use_case.dart';
 import 'package:themify/presentation/app/bloc/app_event.dart';
 import 'package:themify/presentation/app/bloc/app_state.dart';
 import 'package:themify/presentation/base/bloc/base_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+@LazySingleton()
 class AppBloc extends BaseBloc<AppEvent, AppState> {
   AppBloc(this._saveLanguageCodeUseCase) : super(const AppState()) {
     on<AppLanguageChanged>(_onAppLanguageChanged);

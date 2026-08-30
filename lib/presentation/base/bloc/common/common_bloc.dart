@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../shared/utils/num_utils.dart';
 import '../base_bloc.dart';
 import 'common_event.dart';
 import 'common_state.dart';

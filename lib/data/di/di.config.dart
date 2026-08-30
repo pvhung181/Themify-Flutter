@@ -14,6 +14,7 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:themify/data/preferences/app_preferences.dart' as _i795;
 import 'package:themify/domain/navigation/app_navigator.dart' as _i802;
 import 'package:themify/domain/use_case/save_language_use_case.dart' as _i322;
+import 'package:themify/presentation/app/bloc/app_bloc.dart' as _i484;
 import 'package:themify/presentation/base/bloc/common/common_bloc.dart' as _i48;
 import 'package:themify/presentation/navigation/app_navigator_impl.dart'
     as _i811;
@@ -45,6 +46,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i322.SaveLanguageUseCase>(
       () => _i322.SaveLanguageUseCase(gh<_i795.AppPreferences>()),
+    );
+    gh.lazySingleton<_i484.AppBloc>(
+      () => _i484.AppBloc(gh<_i322.SaveLanguageUseCase>()),
     );
     return this;
   }
