@@ -1,6 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:themify/data/preferences/app_preferences.dart';
+import 'package:themify/presentation/base/base_page_state.dart';
+import 'package:themify/presentation/ui/splash/bloc/splash_bloc.dart';
+import 'package:themify/presentation/ui/splash/bloc/splash_event.dart';
+import 'package:themify/shared/utils/log.dart';
 
 @RoutePage()
 class SplashScreen extends StatefulWidget {
@@ -10,9 +14,16 @@ class SplashScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends BasePageState<SplashScreen, SplashBloc> {
   Future<void> openOnboard() async {
-
+    loge(
+      mess: "before onboard"
+    );
+    await Future.delayed(Duration(seconds: 3));
+    loge(
+        mess: "after onboard"
+    );
+    bloc.add(SplashLoadDone());
   }
 
   @override
@@ -22,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildPage(BuildContext context) {
     return Scaffold(
       body: SizedBox(
         width: double.infinity,
