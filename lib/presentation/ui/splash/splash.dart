@@ -40,11 +40,13 @@ class _SplashScreenState extends BasePageState<SplashScreen, SplashBloc> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Expanded(child: LottieBuilder.asset('assets/json/splash.lottie')),
-
-            const CircularProgressIndicator(
-              color: Colors.blue,
-              padding: EdgeInsets.only(bottom: 16),
+            Expanded(
+              child: Center(
+                child: const CircularProgressIndicator(
+                  color: Colors.blue,
+                  padding: EdgeInsets.only(bottom: 16),
+                ),
+              ),
             )
           ],
         ),
