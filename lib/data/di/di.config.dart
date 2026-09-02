@@ -24,6 +24,7 @@ import 'package:themify/presentation/navigation/mapper/app_route_info_mapper.dar
     as _i634;
 import 'package:themify/presentation/navigation/routes/app_router.dart'
     as _i487;
+import 'package:themify/presentation/ui/home/bloc/home_bloc.dart' as _i899;
 import 'package:themify/presentation/ui/splash/bloc/splash_bloc.dart' as _i264;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -34,6 +35,7 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.factory<_i48.CommonBloc>(() => _i48.CommonBloc());
+    gh.factory<_i899.HomeBloc>(() => _i899.HomeBloc());
     gh.factory<_i264.SplashBloc>(() => _i264.SplashBloc());
     gh.lazySingleton<_i795.AppPreferences>(() => _i795.AppPreferences());
     gh.lazySingleton<_i487.AppRouter>(() => _i487.AppRouter());
