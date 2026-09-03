@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
   @override
   Widget buildPage(BuildContext context) {
+
     return const Placeholder();
  }
 

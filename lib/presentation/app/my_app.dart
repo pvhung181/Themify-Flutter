@@ -27,6 +27,7 @@ class _ThemifyAppState extends State<ThemifyApp> {
         builder: (context, state) {
           return MaterialApp.router(
             routerConfig: _appRouter.config(),
+            locale: Locale(state.languageCode.name),
             builder: (context, child) {
               return child ?? const SizedBox.shrink();
             },
