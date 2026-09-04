@@ -7,6 +7,7 @@ import 'package:themify/presentation/navigation/app_navigator_impl.dart';
 import 'package:themify/presentation/ui/home/bloc/home_bloc.dart';
 
 import '../../../domain/entity/enum/bottom_tab.dart';
+import '../../../gen/assets.gen.dart';
 import '../../../resources/styles/app_colors.dart';
 import '../../../resources/styles/app_styles.dart';
 
@@ -21,10 +22,33 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
   @override
   Widget buildPage(BuildContext context) {
-   AppColors appColors = AppColors.of(context);
+    AppColors appColors = AppColors.of(context);
 
     return AutoTabsScaffold(
       routes: (navigator as AppNavigatorImpl).tabRoutes,
+      appBarBuilder: (context, _) {
+        return AppBar(
+          backgroundColor: Colors.transparent,
+          title: const Text("Gps Camera"),
+          leading: IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                Assets.images.icSetting.path,
+                width: 24,
+                height: 24,
+              )
+          ),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                  Assets.images.icCrown.path,
+                  width: 24,
+                  height: 24,
+                ))
+          ],
+        );
+      },
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
           currentIndex: tabsRouter.activeIndex,
@@ -42,16 +66,18 @@ class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
           selectedLabelStyle: AppStyles.sfCompatMedium,
           items: BottomTab.values
               .map(
-                (tab) => BottomNavigationBarItem(
-              label: tab.title,
-              icon: Image.asset(tab.icon, width: 24, height: 24,),
-             activeIcon: Image.asset(tab.activeIcon, width: 24, height: 24,),
-            ),
+                (tab) =>
+                BottomNavigationBarItem(
+                  label: tab.title,
+                  icon: Image.asset(tab.icon, width: 24, height: 24,),
+                  activeIcon: Image.asset(
+                    tab.activeIcon, width: 24, height: 24,),
+                ),
           )
               .toList(),
         );
       },
     );
- }
+  }
 
 }
