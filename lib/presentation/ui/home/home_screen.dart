@@ -5,6 +5,7 @@ import 'package:themify/gen/fonts.gen.dart';
 import 'package:themify/presentation/base/base_page_state.dart';
 import 'package:themify/presentation/navigation/app_navigator_impl.dart';
 import 'package:themify/presentation/ui/home/bloc/home_bloc.dart';
+import 'package:themify/resources/dimens/dimens.dart';
 
 import '../../../domain/entity/enum/bottom_tab.dart';
 import '../../../gen/assets.gen.dart';
@@ -69,9 +70,9 @@ class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
                 (tab) =>
                 BottomNavigationBarItem(
                   label: tab.title,
-                  icon: Image.asset(tab.icon, width: 24, height: 24,),
+                  icon: Image.asset(tab.icon, width: Dimens.d24, height: Dimens.d24,),
                   activeIcon: Image.asset(
-                    tab.activeIcon, width: 24, height: 24,),
+                    tab.activeIcon, width: Dimens.d24, height: Dimens.d24,),
                 ),
           )
               .toList(),

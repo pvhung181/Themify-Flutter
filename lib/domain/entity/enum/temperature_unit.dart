@@ -1,0 +1,3 @@
+enum TemperatureUnit {
+  celsius, fahrenheit
+}

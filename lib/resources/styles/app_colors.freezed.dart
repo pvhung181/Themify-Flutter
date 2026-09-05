@@ -218,8 +218,8 @@ return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary
 /// @nodoc
 
 
-class _AppColors implements AppColors {
-  const _AppColors({required this.primary100, required this.primary200, required this.primary300, required this.primary400, required this.primary500, required this.secondary100, required this.secondary200, required this.secondary300, required this.secondary400, required this.secondary500, required this.secondary600, required this.secondary700, required this.secondary800, required this.secondary900});
+class _AppColors extends AppColors {
+  const _AppColors({required this.primary100, required this.primary200, required this.primary300, required this.primary400, required this.primary500, required this.secondary100, required this.secondary200, required this.secondary300, required this.secondary400, required this.secondary500, required this.secondary600, required this.secondary700, required this.secondary800, required this.secondary900}): super._();
   
 
 @override final  Color primary100;
