@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppColors {
 
- Color get primary100; Color get primary200; Color get primary300; Color get primary400; Color get primary500; Color get secondary100; Color get secondary200; Color get secondary300; Color get secondary400; Color get secondary500; Color get secondary600; Color get secondary700; Color get secondary800; Color get secondary900;
+ Color get primary100; Color get primary200; Color get primary300; Color get primary400; Color get primary500; Color get secondary100; Color get secondary200; Color get secondary300; Color get secondary400; Color get secondary500; Color get secondary600; Color get secondary700; Color get secondary800; Color get secondary900; Color get background;
 /// Create a copy of AppColors
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $AppColorsCopyWith<AppColors> get copyWith => _$AppColorsCopyWithImpl<AppColors>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppColors&&(identical(other.primary100, primary100) || other.primary100 == primary100)&&(identical(other.primary200, primary200) || other.primary200 == primary200)&&(identical(other.primary300, primary300) || other.primary300 == primary300)&&(identical(other.primary400, primary400) || other.primary400 == primary400)&&(identical(other.primary500, primary500) || other.primary500 == primary500)&&(identical(other.secondary100, secondary100) || other.secondary100 == secondary100)&&(identical(other.secondary200, secondary200) || other.secondary200 == secondary200)&&(identical(other.secondary300, secondary300) || other.secondary300 == secondary300)&&(identical(other.secondary400, secondary400) || other.secondary400 == secondary400)&&(identical(other.secondary500, secondary500) || other.secondary500 == secondary500)&&(identical(other.secondary600, secondary600) || other.secondary600 == secondary600)&&(identical(other.secondary700, secondary700) || other.secondary700 == secondary700)&&(identical(other.secondary800, secondary800) || other.secondary800 == secondary800)&&(identical(other.secondary900, secondary900) || other.secondary900 == secondary900));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppColors&&(identical(other.primary100, primary100) || other.primary100 == primary100)&&(identical(other.primary200, primary200) || other.primary200 == primary200)&&(identical(other.primary300, primary300) || other.primary300 == primary300)&&(identical(other.primary400, primary400) || other.primary400 == primary400)&&(identical(other.primary500, primary500) || other.primary500 == primary500)&&(identical(other.secondary100, secondary100) || other.secondary100 == secondary100)&&(identical(other.secondary200, secondary200) || other.secondary200 == secondary200)&&(identical(other.secondary300, secondary300) || other.secondary300 == secondary300)&&(identical(other.secondary400, secondary400) || other.secondary400 == secondary400)&&(identical(other.secondary500, secondary500) || other.secondary500 == secondary500)&&(identical(other.secondary600, secondary600) || other.secondary600 == secondary600)&&(identical(other.secondary700, secondary700) || other.secondary700 == secondary700)&&(identical(other.secondary800, secondary800) || other.secondary800 == secondary800)&&(identical(other.secondary900, secondary900) || other.secondary900 == secondary900)&&(identical(other.background, background) || other.background == background));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,primary100,primary200,primary300,primary400,primary500,secondary100,secondary200,secondary300,secondary400,secondary500,secondary600,secondary700,secondary800,secondary900);
+int get hashCode => Object.hash(runtimeType,primary100,primary200,primary300,primary400,primary500,secondary100,secondary200,secondary300,secondary400,secondary500,secondary600,secondary700,secondary800,secondary900,background);
 
 @override
 String toString() {
-  return 'AppColors(primary100: $primary100, primary200: $primary200, primary300: $primary300, primary400: $primary400, primary500: $primary500, secondary100: $secondary100, secondary200: $secondary200, secondary300: $secondary300, secondary400: $secondary400, secondary500: $secondary500, secondary600: $secondary600, secondary700: $secondary700, secondary800: $secondary800, secondary900: $secondary900)';
+  return 'AppColors(primary100: $primary100, primary200: $primary200, primary300: $primary300, primary400: $primary400, primary500: $primary500, secondary100: $secondary100, secondary200: $secondary200, secondary300: $secondary300, secondary400: $secondary400, secondary500: $secondary500, secondary600: $secondary600, secondary700: $secondary700, secondary800: $secondary800, secondary900: $secondary900, background: $background)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $AppColorsCopyWith<$Res>  {
   factory $AppColorsCopyWith(AppColors value, $Res Function(AppColors) _then) = _$AppColorsCopyWithImpl;
 @useResult
 $Res call({
- Color primary100, Color primary200, Color primary300, Color primary400, Color primary500, Color secondary100, Color secondary200, Color secondary300, Color secondary400, Color secondary500, Color secondary600, Color secondary700, Color secondary800, Color secondary900
+ Color primary100, Color primary200, Color primary300, Color primary400, Color primary500, Color secondary100, Color secondary200, Color secondary300, Color secondary400, Color secondary500, Color secondary600, Color secondary700, Color secondary800, Color secondary900, Color background
 });
 
 
@@ -62,7 +62,7 @@ class _$AppColorsCopyWithImpl<$Res>
 
 /// Create a copy of AppColors
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? primary100 = null,Object? primary200 = null,Object? primary300 = null,Object? primary400 = null,Object? primary500 = null,Object? secondary100 = null,Object? secondary200 = null,Object? secondary300 = null,Object? secondary400 = null,Object? secondary500 = null,Object? secondary600 = null,Object? secondary700 = null,Object? secondary800 = null,Object? secondary900 = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? primary100 = null,Object? primary200 = null,Object? primary300 = null,Object? primary400 = null,Object? primary500 = null,Object? secondary100 = null,Object? secondary200 = null,Object? secondary300 = null,Object? secondary400 = null,Object? secondary500 = null,Object? secondary600 = null,Object? secondary700 = null,Object? secondary800 = null,Object? secondary900 = null,Object? background = null,}) {
   return _then(_self.copyWith(
 primary100: null == primary100 ? _self.primary100 : primary100 // ignore: cast_nullable_to_non_nullable
 as Color,primary200: null == primary200 ? _self.primary200 : primary200 // ignore: cast_nullable_to_non_nullable
@@ -78,6 +78,7 @@ as Color,secondary600: null == secondary600 ? _self.secondary600 : secondary600 
 as Color,secondary700: null == secondary700 ? _self.secondary700 : secondary700 // ignore: cast_nullable_to_non_nullable
 as Color,secondary800: null == secondary800 ? _self.secondary800 : secondary800 // ignore: cast_nullable_to_non_nullable
 as Color,secondary900: null == secondary900 ? _self.secondary900 : secondary900 // ignore: cast_nullable_to_non_nullable
+as Color,background: null == background ? _self.background : background // ignore: cast_nullable_to_non_nullable
 as Color,
   ));
 }
@@ -163,10 +164,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Color primary100,  Color primary200,  Color primary300,  Color primary400,  Color primary500,  Color secondary100,  Color secondary200,  Color secondary300,  Color secondary400,  Color secondary500,  Color secondary600,  Color secondary700,  Color secondary800,  Color secondary900)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Color primary100,  Color primary200,  Color primary300,  Color primary400,  Color primary500,  Color secondary100,  Color secondary200,  Color secondary300,  Color secondary400,  Color secondary500,  Color secondary600,  Color secondary700,  Color secondary800,  Color secondary900,  Color background)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppColors() when $default != null:
-return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary400,_that.primary500,_that.secondary100,_that.secondary200,_that.secondary300,_that.secondary400,_that.secondary500,_that.secondary600,_that.secondary700,_that.secondary800,_that.secondary900);case _:
+return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary400,_that.primary500,_that.secondary100,_that.secondary200,_that.secondary300,_that.secondary400,_that.secondary500,_that.secondary600,_that.secondary700,_that.secondary800,_that.secondary900,_that.background);case _:
   return orElse();
 
 }
@@ -184,10 +185,10 @@ return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Color primary100,  Color primary200,  Color primary300,  Color primary400,  Color primary500,  Color secondary100,  Color secondary200,  Color secondary300,  Color secondary400,  Color secondary500,  Color secondary600,  Color secondary700,  Color secondary800,  Color secondary900)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Color primary100,  Color primary200,  Color primary300,  Color primary400,  Color primary500,  Color secondary100,  Color secondary200,  Color secondary300,  Color secondary400,  Color secondary500,  Color secondary600,  Color secondary700,  Color secondary800,  Color secondary900,  Color background)  $default,) {final _that = this;
 switch (_that) {
 case _AppColors():
-return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary400,_that.primary500,_that.secondary100,_that.secondary200,_that.secondary300,_that.secondary400,_that.secondary500,_that.secondary600,_that.secondary700,_that.secondary800,_that.secondary900);case _:
+return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary400,_that.primary500,_that.secondary100,_that.secondary200,_that.secondary300,_that.secondary400,_that.secondary500,_that.secondary600,_that.secondary700,_that.secondary800,_that.secondary900,_that.background);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +205,10 @@ return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Color primary100,  Color primary200,  Color primary300,  Color primary400,  Color primary500,  Color secondary100,  Color secondary200,  Color secondary300,  Color secondary400,  Color secondary500,  Color secondary600,  Color secondary700,  Color secondary800,  Color secondary900)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Color primary100,  Color primary200,  Color primary300,  Color primary400,  Color primary500,  Color secondary100,  Color secondary200,  Color secondary300,  Color secondary400,  Color secondary500,  Color secondary600,  Color secondary700,  Color secondary800,  Color secondary900,  Color background)?  $default,) {final _that = this;
 switch (_that) {
 case _AppColors() when $default != null:
-return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary400,_that.primary500,_that.secondary100,_that.secondary200,_that.secondary300,_that.secondary400,_that.secondary500,_that.secondary600,_that.secondary700,_that.secondary800,_that.secondary900);case _:
+return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary400,_that.primary500,_that.secondary100,_that.secondary200,_that.secondary300,_that.secondary400,_that.secondary500,_that.secondary600,_that.secondary700,_that.secondary800,_that.secondary900,_that.background);case _:
   return null;
 
 }
@@ -219,7 +220,7 @@ return $default(_that.primary100,_that.primary200,_that.primary300,_that.primary
 
 
 class _AppColors extends AppColors {
-  const _AppColors({required this.primary100, required this.primary200, required this.primary300, required this.primary400, required this.primary500, required this.secondary100, required this.secondary200, required this.secondary300, required this.secondary400, required this.secondary500, required this.secondary600, required this.secondary700, required this.secondary800, required this.secondary900}): super._();
+  const _AppColors({required this.primary100, required this.primary200, required this.primary300, required this.primary400, required this.primary500, required this.secondary100, required this.secondary200, required this.secondary300, required this.secondary400, required this.secondary500, required this.secondary600, required this.secondary700, required this.secondary800, required this.secondary900, required this.background}): super._();
   
 
 @override final  Color primary100;
@@ -236,6 +237,7 @@ class _AppColors extends AppColors {
 @override final  Color secondary700;
 @override final  Color secondary800;
 @override final  Color secondary900;
+@override final  Color background;
 
 /// Create a copy of AppColors
 /// with the given fields replaced by the non-null parameter values.
@@ -247,16 +249,16 @@ _$AppColorsCopyWith<_AppColors> get copyWith => __$AppColorsCopyWithImpl<_AppCol
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppColors&&(identical(other.primary100, primary100) || other.primary100 == primary100)&&(identical(other.primary200, primary200) || other.primary200 == primary200)&&(identical(other.primary300, primary300) || other.primary300 == primary300)&&(identical(other.primary400, primary400) || other.primary400 == primary400)&&(identical(other.primary500, primary500) || other.primary500 == primary500)&&(identical(other.secondary100, secondary100) || other.secondary100 == secondary100)&&(identical(other.secondary200, secondary200) || other.secondary200 == secondary200)&&(identical(other.secondary300, secondary300) || other.secondary300 == secondary300)&&(identical(other.secondary400, secondary400) || other.secondary400 == secondary400)&&(identical(other.secondary500, secondary500) || other.secondary500 == secondary500)&&(identical(other.secondary600, secondary600) || other.secondary600 == secondary600)&&(identical(other.secondary700, secondary700) || other.secondary700 == secondary700)&&(identical(other.secondary800, secondary800) || other.secondary800 == secondary800)&&(identical(other.secondary900, secondary900) || other.secondary900 == secondary900));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppColors&&(identical(other.primary100, primary100) || other.primary100 == primary100)&&(identical(other.primary200, primary200) || other.primary200 == primary200)&&(identical(other.primary300, primary300) || other.primary300 == primary300)&&(identical(other.primary400, primary400) || other.primary400 == primary400)&&(identical(other.primary500, primary500) || other.primary500 == primary500)&&(identical(other.secondary100, secondary100) || other.secondary100 == secondary100)&&(identical(other.secondary200, secondary200) || other.secondary200 == secondary200)&&(identical(other.secondary300, secondary300) || other.secondary300 == secondary300)&&(identical(other.secondary400, secondary400) || other.secondary400 == secondary400)&&(identical(other.secondary500, secondary500) || other.secondary500 == secondary500)&&(identical(other.secondary600, secondary600) || other.secondary600 == secondary600)&&(identical(other.secondary700, secondary700) || other.secondary700 == secondary700)&&(identical(other.secondary800, secondary800) || other.secondary800 == secondary800)&&(identical(other.secondary900, secondary900) || other.secondary900 == secondary900)&&(identical(other.background, background) || other.background == background));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,primary100,primary200,primary300,primary400,primary500,secondary100,secondary200,secondary300,secondary400,secondary500,secondary600,secondary700,secondary800,secondary900);
+int get hashCode => Object.hash(runtimeType,primary100,primary200,primary300,primary400,primary500,secondary100,secondary200,secondary300,secondary400,secondary500,secondary600,secondary700,secondary800,secondary900,background);
 
 @override
 String toString() {
-  return 'AppColors(primary100: $primary100, primary200: $primary200, primary300: $primary300, primary400: $primary400, primary500: $primary500, secondary100: $secondary100, secondary200: $secondary200, secondary300: $secondary300, secondary400: $secondary400, secondary500: $secondary500, secondary600: $secondary600, secondary700: $secondary700, secondary800: $secondary800, secondary900: $secondary900)';
+  return 'AppColors(primary100: $primary100, primary200: $primary200, primary300: $primary300, primary400: $primary400, primary500: $primary500, secondary100: $secondary100, secondary200: $secondary200, secondary300: $secondary300, secondary400: $secondary400, secondary500: $secondary500, secondary600: $secondary600, secondary700: $secondary700, secondary800: $secondary800, secondary900: $secondary900, background: $background)';
 }
 
 
@@ -267,7 +269,7 @@ abstract mixin class _$AppColorsCopyWith<$Res> implements $AppColorsCopyWith<$Re
   factory _$AppColorsCopyWith(_AppColors value, $Res Function(_AppColors) _then) = __$AppColorsCopyWithImpl;
 @override @useResult
 $Res call({
- Color primary100, Color primary200, Color primary300, Color primary400, Color primary500, Color secondary100, Color secondary200, Color secondary300, Color secondary400, Color secondary500, Color secondary600, Color secondary700, Color secondary800, Color secondary900
+ Color primary100, Color primary200, Color primary300, Color primary400, Color primary500, Color secondary100, Color secondary200, Color secondary300, Color secondary400, Color secondary500, Color secondary600, Color secondary700, Color secondary800, Color secondary900, Color background
 });
 
 
@@ -284,7 +286,7 @@ class __$AppColorsCopyWithImpl<$Res>
 
 /// Create a copy of AppColors
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? primary100 = null,Object? primary200 = null,Object? primary300 = null,Object? primary400 = null,Object? primary500 = null,Object? secondary100 = null,Object? secondary200 = null,Object? secondary300 = null,Object? secondary400 = null,Object? secondary500 = null,Object? secondary600 = null,Object? secondary700 = null,Object? secondary800 = null,Object? secondary900 = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? primary100 = null,Object? primary200 = null,Object? primary300 = null,Object? primary400 = null,Object? primary500 = null,Object? secondary100 = null,Object? secondary200 = null,Object? secondary300 = null,Object? secondary400 = null,Object? secondary500 = null,Object? secondary600 = null,Object? secondary700 = null,Object? secondary800 = null,Object? secondary900 = null,Object? background = null,}) {
   return _then(_AppColors(
 primary100: null == primary100 ? _self.primary100 : primary100 // ignore: cast_nullable_to_non_nullable
 as Color,primary200: null == primary200 ? _self.primary200 : primary200 // ignore: cast_nullable_to_non_nullable
@@ -300,6 +302,7 @@ as Color,secondary600: null == secondary600 ? _self.secondary600 : secondary600 
 as Color,secondary700: null == secondary700 ? _self.secondary700 : secondary700 // ignore: cast_nullable_to_non_nullable
 as Color,secondary800: null == secondary800 ? _self.secondary800 : secondary800 // ignore: cast_nullable_to_non_nullable
 as Color,secondary900: null == secondary900 ? _self.secondary900 : secondary900 // ignore: cast_nullable_to_non_nullable
+as Color,background: null == background ? _self.background : background // ignore: cast_nullable_to_non_nullable
 as Color,
   ));
 }

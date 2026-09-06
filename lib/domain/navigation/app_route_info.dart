@@ -8,4 +8,5 @@ class AppRouteInfo with _$AppRouteInfo {
   const factory AppRouteInfo.splash() = _Splash;
   const factory AppRouteInfo.home() = _Home;
   const factory AppRouteInfo.setting() = _Setting;
+  const factory AppRouteInfo.languages() = _Languages;
 }

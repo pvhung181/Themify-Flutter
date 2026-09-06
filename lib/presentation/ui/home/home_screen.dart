@@ -27,6 +27,7 @@ class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
     AppColors appColors = AppColors.of(context);
 
     return AutoTabsScaffold(
+      backgroundColor: appColors.background,
       routes: (navigator as AppNavigatorImpl).tabRoutes,
       appBarBuilder: (context, _) {
         return AppBar(
@@ -72,7 +73,7 @@ class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
               .map(
                 (tab) =>
                 BottomNavigationBarItem(
-                  label: tab.title,
+                  label: tab.title(context),
                   icon: Image.asset(tab.icon, width: Dimens.d24, height: Dimens.d24,),
                   activeIcon: Image.asset(
                     tab.activeIcon, width: Dimens.d24, height: Dimens.d24,),

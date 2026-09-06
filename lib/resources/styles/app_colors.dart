@@ -2,11 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'app_themes.dart';
+
 part 'app_colors.freezed.dart';
 
 @freezed
 abstract class AppColors with _$AppColors {
   const AppColors._();
+
+  static late AppColors current;
 
   const factory AppColors({
     required Color primary100,
@@ -23,10 +27,15 @@ abstract class AppColors with _$AppColors {
     required Color secondary700,
     required Color secondary800,
     required Color secondary900,
+    required Color background
   }) = _AppColors;
 
   static AppColors of(BuildContext context) {
-    return defaultAppColor;
+    final appColor = Theme.of(context).appColor;
+
+    current = appColor;
+
+    return current;
   }
 
   static const defaultAppColor = AppColors(
@@ -44,5 +53,25 @@ abstract class AppColors with _$AppColors {
     secondary700: Color(0xFF9E9E9E),
     secondary800: Color(0xFFF0F0F0),
     secondary900: Color(0xFFFFFFFF),
+    background: Color(0xFFF8F8F8),
+  );
+
+
+  static const darkThemeColor = AppColors(
+    primary100: Color(0xFFE53E00),
+    primary200: Color(0xFFFF5517),
+    primary300: Color(0xFFFF7D4D),
+    primary400: Color(0xFFFFA280),
+    primary500: Color(0xFFFFEDE5),
+    secondary100: Color(0xFF000000),
+    secondary200: Color(0xFF1C1B20),
+    secondary300: Color(0xFF242328),
+    secondary400: Color(0xFF454448),
+    secondary500: Color(0xFF626262),
+    secondary600: Color(0xFF848484),
+    secondary700: Color(0xFF9E9E9E),
+    secondary800: Color(0xFFF0F0F0),
+    secondary900: Color(0xFFFFFFFF),
+    background: Color(0xFF000000),
   );
 }

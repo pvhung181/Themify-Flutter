@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:themify/domain/navigation/app_route_info.dart';
 import 'package:themify/presentation/app/bloc/app_bloc.dart';
 import 'package:themify/presentation/app/bloc/app_state.dart';
 import 'package:themify/presentation/base/base_page_state.dart';
@@ -68,7 +69,7 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
                       builder: (context, state) {
                         return SettingValueItem(
                           icon: Assets.images.icTimeStart.path,
-                          title: l10n!.photo_refresh,
+                          title: l10n.photo_refresh,
                           value: state.photoRefresh.name,
                           isShowDivider: true,
                           onClick: () {},
@@ -83,7 +84,7 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
                       builder: (context, state) {
                         return SettingValueItem(
                           icon: Assets.images.icTemperature.path,
-                          title: l10n!.show_temperature_in,
+                          title: l10n.show_temperature_in,
                           value: state.temperatureUnit.name,
                           isShowDivider: true,
                           onClick: () {},
@@ -98,7 +99,7 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
                       builder: (context, state) {
                         return SettingValueItem(
                           icon: Assets.images.icTimeFormat.path,
-                          title: l10n!.time_format,
+                          title: l10n.time_format,
                           value: state.timeFormat.name,
                           isShowDivider: true,
                           onClick: () {},
@@ -120,7 +121,9 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
                           title: l10n.languages,
                           value: state.languageCode.name,
                           isShowDivider: false,
-                          onClick: () {},
+                          onClick: () {
+                            bloc.add(NavigateEvent(AppRouteInfo.languages()));
+                          },
                         );
                       },
                     ),

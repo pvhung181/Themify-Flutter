@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../../gen/assets.gen.dart';
+import '../../../resources/l10n/app_localizations.dart';
 
 enum BottomTab {
   themes,
@@ -32,16 +35,16 @@ enum BottomTab {
     }
   }
 
-  String get title {
+  String title(BuildContext context) {
     switch (this) {
       case BottomTab.themes:
-        return "Themes";
+        return AppLocalizations.of(context)!.themes;
       case BottomTab.widgets:
-        return "Widgets";
+        return AppLocalizations.of(context)!.widgets;
       case BottomTab.icons:
-        return "Icons";
+        return AppLocalizations.of(context)!.icons;
       case BottomTab.wallpapers:
-        return "Wallpapers";
+        return AppLocalizations.of(context)!.wallpapers;
     }
   }
 }
