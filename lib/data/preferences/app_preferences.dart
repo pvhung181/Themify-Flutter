@@ -8,7 +8,10 @@ import 'package:themify/domain/entity/enum/language_code.dart';
 class AppPreferences {
   final SharedPreferencesAsync _preferences = SharedPreferencesAsync();
 
-  Future<String> get currentLanguage => getString(PreferencesKeys.currentLanguageCode,defaultValue: LanguageCode.en.name);
+  Future<String> get currentLanguage => getStringWithDefault(
+    PreferencesKeys.currentLanguageCode,
+    defaultValue: LanguageCode.en.name,
+  );
 
   // Boolean
   Future<void> setBoolean(String key, bool value) async =>
@@ -21,8 +24,13 @@ class AppPreferences {
   Future<void> setString(String key, String value) async =>
       await _preferences.setString(key, value);
 
-  Future<String> getString(String key, {String defaultValue = ""}) async =>
-      await _preferences.getString(key) ?? defaultValue;
+  Future<String?> getString(String key) async =>
+      await _preferences.getString(key);
+
+  Future<String> getStringWithDefault(
+    String key, {
+    String defaultValue = "",
+  }) async => await _preferences.getString(key) ?? defaultValue;
 
   // Int
   Future<void> setInt(String key, int value) async =>
