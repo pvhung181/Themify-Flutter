@@ -1,7 +1,10 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:themify/presentation/base/base_page_state.dart';
 import 'package:themify/presentation/ui/settings/bloc/settings_bloc.dart';
+import 'package:themify/presentation/ui/settings/bloc/settings_event.dart';
 
+@RoutePage()
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
@@ -13,6 +16,7 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
   @override
   void initState() {
     super.initState();
+    bloc.add(InitSettingDataEvent());
   }
 
   @override

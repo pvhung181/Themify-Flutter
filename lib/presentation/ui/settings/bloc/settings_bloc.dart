@@ -5,6 +5,7 @@ import 'package:themify/data/preferences/preferences_keys.dart';
 import 'package:themify/domain/entity/enum/photo_refresh.dart';
 import 'package:themify/domain/entity/enum/temperature_unit.dart';
 import 'package:themify/domain/entity/enum/time_format.dart';
+import 'package:themify/presentation/app/app_defaults.dart';
 import 'package:themify/presentation/base/bloc/base_bloc.dart';
 import 'package:themify/presentation/ui/settings/bloc/settings_event.dart';
 import 'package:themify/presentation/ui/settings/bloc/settings_state.dart';
@@ -12,7 +13,7 @@ import 'package:themify/presentation/ui/settings/bloc/settings_state.dart';
 @injectable
 class SettingsBloc extends BaseBloc<SettingsEvent, SettingsState> {
   SettingsBloc(this._preferences) : super(SettingsState()) {
-    on<InitData>(_initData);
+    on<InitSettingDataEvent>(_initData);
     on<ChangePhotoRefreshEvent>(_changePhotoRefresh);
     on<ChangeTimeFormat>(_changeTimeFormat);
     on<ChangeTemperatureUnit>(_changeTemperatureUnit);
@@ -20,13 +21,13 @@ class SettingsBloc extends BaseBloc<SettingsEvent, SettingsState> {
 
   final AppPreferences _preferences;
 
-  Future<void> _initData(InitData event, Emitter<SettingsState> emitter) async {
+  Future<void> _initData(InitSettingDataEvent event, Emitter<SettingsState> emitter) async {
     String stringPhotoRefresh = await _preferences.getString(
-        PreferencesKeys.photoRefresh);
+        PreferencesKeys.photoRefresh) ?? AppDefaults.defaultPhotoRefresh.name;
     String stringTemperatureUnit = await _preferences.getString(
-        PreferencesKeys.temperatureFormat);
+        PreferencesKeys.temperatureFormat) ?? AppDefaults.defaultTemperatureUnit.name;
     String stringTimeFormat = await _preferences.getString(
-        PreferencesKeys.timeFormat);
+        PreferencesKeys.timeFormat) ?? AppDefaults.defaultTimeFormat.name;
 
     emitter(
         state.copyWith(

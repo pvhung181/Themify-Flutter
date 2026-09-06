@@ -6,7 +6,7 @@ import 'package:themify/presentation/base/bloc/base_bloc_event.dart';
 abstract class SettingsEvent extends BaseBlocEvent {
 }
 
-class InitData extends SettingsEvent {
+class InitSettingDataEvent extends SettingsEvent {
 
 }
 

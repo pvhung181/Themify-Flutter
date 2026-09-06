@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:themify/domain/navigation/app_route_info.dart';
 import 'package:themify/gen/fonts.gen.dart';
 import 'package:themify/presentation/base/base_page_state.dart';
 import 'package:themify/presentation/navigation/app_navigator_impl.dart';
@@ -32,7 +33,9 @@ class _HomeScreenState extends BasePageState<HomeScreen, HomeBloc> {
           backgroundColor: Colors.transparent,
           title: const Text("Gps Camera"),
           leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                navigator.push(AppRouteInfo.setting());
+              },
               icon: Image.asset(
                 Assets.images.icSetting.path,
                 width: 24,
