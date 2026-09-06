@@ -1,8 +1,16 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:themify/presentation/base/base_page_state.dart';
 import 'package:themify/presentation/ui/settings/bloc/settings_bloc.dart';
 import 'package:themify/presentation/ui/settings/bloc/settings_event.dart';
+import 'package:themify/presentation/ui/settings/bloc/settings_state.dart';
+import 'package:themify/presentation/ui/settings/components/setting_value_item.dart';
+import 'package:themify/resources/l10n/app_localizations.dart';
+import 'package:themify/resources/styles/app_colors.dart';
+
+import '../../../gen/assets.gen.dart';
+import '../../../resources/dimens/dimens.dart';
 
 @RoutePage()
 class SettingScreen extends StatefulWidget {
@@ -21,6 +29,77 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
 
   @override
   Widget buildPage(BuildContext context) {
-    return const Placeholder();
+    AppColors appColors = AppColors.of(context);
+    AppLocalizations? l10n = AppLocalizations.of(context);
+
+    return Scaffold(
+      body: SizedBox(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: Dimens.d20),
+          child: Column(
+            children: [
+              Material(
+                borderRadius: BorderRadius.circular(Dimens.d20),
+                clipBehavior: Clip.antiAlias,
+                color: appColors.secondary900,
+                child: Column(
+                  children: [
+                    BlocBuilder<SettingsBloc, SettingsState>(
+                      buildWhen: (prev, curr) {
+                        return prev.photoRefresh != curr.photoRefresh;
+                      },
+                      builder: (context, state) {
+                        return SettingValueItem(
+                          icon: Assets.images.icTimeStart.path,
+                          title: l10n!.photo_refresh,
+                          value: state.photoRefresh.name,
+                          isShowDivider: true,
+                          onClick: () {},
+                        );
+                      },
+                    ),
+
+                    BlocBuilder<SettingsBloc, SettingsState>(
+                      buildWhen: (prev, curr) {
+                        return prev.temperatureUnit != curr.temperatureUnit;
+                      },
+                      builder: (context, state) {
+                        return SettingValueItem(
+                          icon: Assets.images.icTemperature.path,
+                          title: l10n!.show_temperature_in,
+                          value: state.temperatureUnit.name,
+                          isShowDivider: true,
+                          onClick: () {},
+                        );
+                      },
+                    ),
+
+                    BlocBuilder<SettingsBloc, SettingsState>(
+                      buildWhen: (prev, curr) {
+                        return prev.timeFormat != curr.timeFormat;
+                      },
+                      builder: (context, state) {
+                        return SettingValueItem(
+                          icon: Assets.images.icTimeFormat.path,
+                          title: l10n!.time_format,
+                          value: state.timeFormat.name,
+                          isShowDivider: true,
+                          onClick: () {},
+                        );
+                      },
+                    )
+
+                  ],
+                ),
+              ),
+
+              SizedBox(height: Dimens.d20),
+
+              Column(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
