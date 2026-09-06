@@ -5,6 +5,7 @@ import 'package:themify/presentation/app/bloc/app_bloc.dart';
 import 'package:themify/presentation/app/bloc/app_state.dart';
 import 'package:themify/presentation/navigation/routes/app_router.dart';
 import 'package:themify/resources/l10n/app_localizations.dart';
+import 'package:themify/resources/styles/app_themes.dart';
 
 class ThemifyApp extends StatefulWidget {
   const ThemifyApp({super.key});
@@ -31,6 +32,9 @@ class _ThemifyAppState extends State<ThemifyApp> {
             locale: Locale(state.languageCode.name),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
+            themeMode: state.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+            theme: lightTheme,
+            darkTheme: darkTheme,
             builder: (context, child) {
               return child ?? const SizedBox.shrink();
             },

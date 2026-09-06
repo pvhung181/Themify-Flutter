@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:themify/gen/fonts.gen.dart';
 
+import '../dimens/dimens.dart';
+
 class AppStyles {
   const AppStyles._();
 
@@ -17,5 +19,10 @@ class AppStyles {
   static TextStyle sfCompatRegular = TextStyle(
     fontFamily: FontFamily.sfCompact,
     fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle styleHeader = sfCompatMedium.copyWith(
+    fontSize: Dimens.d20,
+    height: Dimens.d24
   );
 }

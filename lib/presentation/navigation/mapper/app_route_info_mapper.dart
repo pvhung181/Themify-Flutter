@@ -12,7 +12,8 @@ class AppRouteInfoMapper extends BaseRouteInfoMapper {
     return appRouteInfo.when(
       splash: () => const SplashRoute(),
       home: () => const HomeRoute(),
-      setting: () => const SettingRoute()
+      setting: () => const SettingRoute(),
+      languages: () => const LanguageRoute()
     );
   }
 }

@@ -55,13 +55,14 @@ extension AppRouteInfoPatterns on AppRouteInfo {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Splash value)?  splash,TResult Function( _Home value)?  home,TResult Function( _Setting value)?  setting,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Splash value)?  splash,TResult Function( _Home value)?  home,TResult Function( _Setting value)?  setting,TResult Function( _Languages value)?  languages,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Splash() when splash != null:
 return splash(_that);case _Home() when home != null:
 return home(_that);case _Setting() when setting != null:
-return setting(_that);case _:
+return setting(_that);case _Languages() when languages != null:
+return languages(_that);case _:
   return orElse();
 
 }
@@ -79,13 +80,14 @@ return setting(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Splash value)  splash,required TResult Function( _Home value)  home,required TResult Function( _Setting value)  setting,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Splash value)  splash,required TResult Function( _Home value)  home,required TResult Function( _Setting value)  setting,required TResult Function( _Languages value)  languages,}){
 final _that = this;
 switch (_that) {
 case _Splash():
 return splash(_that);case _Home():
 return home(_that);case _Setting():
-return setting(_that);case _:
+return setting(_that);case _Languages():
+return languages(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -102,13 +104,14 @@ return setting(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Splash value)?  splash,TResult? Function( _Home value)?  home,TResult? Function( _Setting value)?  setting,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Splash value)?  splash,TResult? Function( _Home value)?  home,TResult? Function( _Setting value)?  setting,TResult? Function( _Languages value)?  languages,}){
 final _that = this;
 switch (_that) {
 case _Splash() when splash != null:
 return splash(_that);case _Home() when home != null:
 return home(_that);case _Setting() when setting != null:
-return setting(_that);case _:
+return setting(_that);case _Languages() when languages != null:
+return languages(_that);case _:
   return null;
 
 }
@@ -125,12 +128,13 @@ return setting(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  splash,TResult Function()?  home,TResult Function()?  setting,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  splash,TResult Function()?  home,TResult Function()?  setting,TResult Function()?  languages,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Splash() when splash != null:
 return splash();case _Home() when home != null:
 return home();case _Setting() when setting != null:
-return setting();case _:
+return setting();case _Languages() when languages != null:
+return languages();case _:
   return orElse();
 
 }
@@ -148,12 +152,13 @@ return setting();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  splash,required TResult Function()  home,required TResult Function()  setting,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  splash,required TResult Function()  home,required TResult Function()  setting,required TResult Function()  languages,}) {final _that = this;
 switch (_that) {
 case _Splash():
 return splash();case _Home():
 return home();case _Setting():
-return setting();case _:
+return setting();case _Languages():
+return languages();case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -170,12 +175,13 @@ return setting();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  splash,TResult? Function()?  home,TResult? Function()?  setting,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  splash,TResult? Function()?  home,TResult? Function()?  setting,TResult? Function()?  languages,}) {final _that = this;
 switch (_that) {
 case _Splash() when splash != null:
 return splash();case _Home() when home != null:
 return home();case _Setting() when setting != null:
-return setting();case _:
+return setting();case _Languages() when languages != null:
+return languages();case _:
   return null;
 
 }
@@ -271,6 +277,38 @@ int get hashCode => runtimeType.hashCode;
 @override
 String toString() {
   return 'AppRouteInfo.setting()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Languages implements AppRouteInfo {
+  const _Languages();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Languages);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AppRouteInfo.languages()';
 }
 
 
