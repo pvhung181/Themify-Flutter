@@ -24,7 +24,8 @@ class LanguageBloc  extends BaseBloc<LanguageEvent, LanguageState> {
       List<Language> languages = Provider.getListLanguages();
       emit(
         state.copyWith(
-          languages: languages
+          languages: languages,
+          currentSelected: appBloc.state.languageCode
         )
       );
   }
@@ -32,14 +33,21 @@ class LanguageBloc  extends BaseBloc<LanguageEvent, LanguageState> {
   void _changeSelectedLocale(ChangeSelectedLocaleEvent event, Emitter<LanguageState> emit) {
     emit(
       state.copyWith(
-        currentSelected: event.languageCode
-      )
+        currentSelected: event.languageCode,
+        isShowDone: event.languageCode != appBloc.state.languageCode,
+      ),
     );
   }
 
   Future<void> _setLanguage(SetLocaleEvent event, Emitter<LanguageState> emit) async {
-    _preferences.setString(PreferencesKeys.currentLanguageCode, event.languageCode.localeCode);
-    appBloc.add(AppLanguageChanged(languageCode: event.languageCode));
+    final selectedLanguage = state.languages.firstWhere(
+      (element) => element.languageCode == state.currentSelected,
+    );
+    _preferences.setString(
+      PreferencesKeys.currentLanguageCode,
+      selectedLanguage.languageCode.localeCode,
+    );
+    appBloc.add(AppLanguageChanged(languageCode: selectedLanguage.languageCode));
     navigator.pop();
   }
 }

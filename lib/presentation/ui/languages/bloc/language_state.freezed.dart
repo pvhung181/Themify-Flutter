@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LanguageState {
 
- String? get currentSelected; List<Language> get languages; bool get isShowDone;
+ LanguageCode? get currentSelected; List<Language> get languages; bool get isShowDone;
 /// Create a copy of LanguageState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $LanguageStateCopyWith<$Res>  {
   factory $LanguageStateCopyWith(LanguageState value, $Res Function(LanguageState) _then) = _$LanguageStateCopyWithImpl;
 @useResult
 $Res call({
- String? currentSelected, List<Language> languages, bool isShowDone
+ LanguageCode? currentSelected, List<Language> languages, bool isShowDone
 });
 
 
@@ -65,7 +65,7 @@ class _$LanguageStateCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? currentSelected = freezed,Object? languages = null,Object? isShowDone = null,}) {
   return _then(_self.copyWith(
 currentSelected: freezed == currentSelected ? _self.currentSelected : currentSelected // ignore: cast_nullable_to_non_nullable
-as String?,languages: null == languages ? _self.languages : languages // ignore: cast_nullable_to_non_nullable
+as LanguageCode?,languages: null == languages ? _self.languages : languages // ignore: cast_nullable_to_non_nullable
 as List<Language>,isShowDone: null == isShowDone ? _self.isShowDone : isShowDone // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -152,7 +152,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? currentSelected,  List<Language> languages,  bool isShowDone)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LanguageCode? currentSelected,  List<Language> languages,  bool isShowDone)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LanguageState() when $default != null:
 return $default(_that.currentSelected,_that.languages,_that.isShowDone);case _:
@@ -173,7 +173,7 @@ return $default(_that.currentSelected,_that.languages,_that.isShowDone);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? currentSelected,  List<Language> languages,  bool isShowDone)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LanguageCode? currentSelected,  List<Language> languages,  bool isShowDone)  $default,) {final _that = this;
 switch (_that) {
 case _LanguageState():
 return $default(_that.currentSelected,_that.languages,_that.isShowDone);case _:
@@ -193,7 +193,7 @@ return $default(_that.currentSelected,_that.languages,_that.isShowDone);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? currentSelected,  List<Language> languages,  bool isShowDone)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LanguageCode? currentSelected,  List<Language> languages,  bool isShowDone)?  $default,) {final _that = this;
 switch (_that) {
 case _LanguageState() when $default != null:
 return $default(_that.currentSelected,_that.languages,_that.isShowDone);case _:
@@ -211,7 +211,7 @@ class _LanguageState extends LanguageState {
    _LanguageState({this.currentSelected, final  List<Language> languages = const [], this.isShowDone = false}): _languages = languages,super._();
   
 
-@override final  String? currentSelected;
+@override final  LanguageCode? currentSelected;
  final  List<Language> _languages;
 @override@JsonKey() List<Language> get languages {
   if (_languages is EqualUnmodifiableListView) return _languages;
@@ -251,7 +251,7 @@ abstract mixin class _$LanguageStateCopyWith<$Res> implements $LanguageStateCopy
   factory _$LanguageStateCopyWith(_LanguageState value, $Res Function(_LanguageState) _then) = __$LanguageStateCopyWithImpl;
 @override @useResult
 $Res call({
- String? currentSelected, List<Language> languages, bool isShowDone
+ LanguageCode? currentSelected, List<Language> languages, bool isShowDone
 });
 
 
@@ -271,7 +271,7 @@ class __$LanguageStateCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? currentSelected = freezed,Object? languages = null,Object? isShowDone = null,}) {
   return _then(_LanguageState(
 currentSelected: freezed == currentSelected ? _self.currentSelected : currentSelected // ignore: cast_nullable_to_non_nullable
-as String?,languages: null == languages ? _self._languages : languages // ignore: cast_nullable_to_non_nullable
+as LanguageCode?,languages: null == languages ? _self._languages : languages // ignore: cast_nullable_to_non_nullable
 as List<Language>,isShowDone: null == isShowDone ? _self.isShowDone : isShowDone // ignore: cast_nullable_to_non_nullable
 as bool,
   ));

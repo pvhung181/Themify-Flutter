@@ -1,7 +1,11 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:themify/presentation/base/base_page_state.dart';
 import 'package:themify/presentation/ui/languages/bloc/language_event.dart';
+import 'package:themify/domain/entity/enum/language_code.dart';
+import 'package:themify/presentation/ui/languages/bloc/language_state.dart';
+import 'package:themify/presentation/ui/languages/components/language_item.dart';
 import 'package:themify/resources/l10n/app_localizations.dart';
 import 'package:themify/resources/styles/app_colors.dart';
 
@@ -17,7 +21,7 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends BasePageState<LanguageScreen, LanguageBloc> {
- @override
+  @override
   void initState() {
     super.initState();
     bloc.add(InitLanguageData());
@@ -26,21 +30,59 @@ class _LanguageScreenState extends BasePageState<LanguageScreen, LanguageBloc> {
   @override
   Widget buildPage(BuildContext context) {
     AppColors appColors = AppColors.of(context);
-    AppLocalizations l10n = AppLocalizations.of(context)!;
+    AppLocalizations l10n = AppLocalizations.of(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: navigator.pop, icon: Icon(Icons.arrow_back_ios_new)),
-        title: Text(
-          l10n.languages,
-          style: AppStyles.styleHeader.copyWith(
-            color: appColors.secondary200
+    return BlocBuilder<LanguageBloc, LanguageState>(
+      builder: (_, state) {
+        return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              onPressed: navigator.pop,
+              icon: Icon(Icons.arrow_back_ios_new),
+            ),
+            title: Text(
+              l10n.languages,
+              style: AppStyles.styleHeader.copyWith(
+                color: appColors.secondary200,
+              ),
+            ),
+            actions: [
+              if (state.isShowDone)
+                IconButton(
+                  onPressed: () {
+                    bloc.add(
+                      SetLocaleEvent(LanguageCode.defaultValue),
+                    ); // The event param is not used now, but we need to trigger it
+                  },
+                  icon: Icon(Icons.check, color: appColors.primary200),
+                ),
+            ],
           ),
-        ),
-      ),
-      body: Column(
-
-      ),
+          body: RadioGroup(
+            groupValue: state.currentSelected,
+            onChanged: (value) {
+              if (value != null) {
+                bloc.add(ChangeSelectedLocaleEvent(value));
+              }
+            },
+            child: ListView(
+              children: [
+                for (final item in state.languages)
+                  LanguageItemUi(
+                    isSelect:
+                        item.languageCode == state.currentSelected,
+                    languageItem: item,
+                    onClick: (lang) {
+                      bloc.add(
+                        ChangeSelectedLocaleEvent(lang),
+                      );
+                    },
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

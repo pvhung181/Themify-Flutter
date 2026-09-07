@@ -6,7 +6,7 @@ abstract class LanguageEvent extends BaseBlocEvent {}
 class InitLanguageData extends LanguageEvent {}
 
 class ChangeSelectedLocaleEvent extends LanguageEvent {
-  final String languageCode;
+  final LanguageCode languageCode;
 
   ChangeSelectedLocaleEvent(this.languageCode);
 }
