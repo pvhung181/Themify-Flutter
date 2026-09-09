@@ -1,4 +1,5 @@
 
+import 'app_popup_info.dart';
 import 'app_route_info.dart';
 
 abstract class AppNavigator {
@@ -44,4 +45,11 @@ abstract class AppNavigator {
   bool removeAllRoutesWithName(String routeName);
 
   bool removeLast();
+
+  Future<T?> showDialog<T extends Object?>(
+      AppPopupInfo appPopupInfo, {
+        bool barrierDismissible = true,
+        bool useSafeArea = false,
+        bool useRootNavigator = true,
+      });
 }

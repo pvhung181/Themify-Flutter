@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:themify/domain/navigation/app_popup_info.dart';
 import 'package:themify/domain/navigation/app_route_info.dart';
 import 'package:themify/presentation/app/bloc/app_bloc.dart';
 import 'package:themify/presentation/app/bloc/app_state.dart';
@@ -13,6 +14,7 @@ import 'package:themify/presentation/ui/settings/components/setting_value_item.d
 import 'package:themify/resources/l10n/app_localizations.dart';
 import 'package:themify/resources/styles/app_colors.dart';
 import 'package:themify/resources/styles/app_styles.dart';
+import 'package:themify/shared/helper/function/function.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../resources/dimens/dimens.dart';
@@ -143,7 +145,19 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
                       icon: Assets.images.icRate.path,
                       title: l10n.rate_app,
                       isShowDivider: true,
-                      onClick: () {},
+                      onClick: () {
+                        navigator.showDialog(AppPopupInfo.rateDialog(
+                          maxRate: 5,
+                          onRateClick: Func1((star) {
+
+                          }) ,
+                          onCancelClick: Func0(() {
+                            navigator.pop();
+                          })
+
+                        ));
+                      },
+
                     ),
                     SettingNavigationItem(
                       icon: Assets.images.icShareApp.path,

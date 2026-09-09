@@ -18,8 +18,12 @@ import 'package:themify/presentation/app/bloc/app_bloc.dart' as _i484;
 import 'package:themify/presentation/base/bloc/common/common_bloc.dart' as _i48;
 import 'package:themify/presentation/navigation/app_navigator_impl.dart'
     as _i811;
+import 'package:themify/presentation/navigation/base/base_popup_info_mapper.dart'
+    as _i344;
 import 'package:themify/presentation/navigation/base/base_route_info_mapper.dart'
     as _i401;
+import 'package:themify/presentation/navigation/mapper/app_popup_info_mapper.dart'
+    as _i668;
 import 'package:themify/presentation/navigation/mapper/app_route_info_mapper.dart'
     as _i634;
 import 'package:themify/presentation/navigation/routes/app_router.dart'
@@ -46,11 +50,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i401.BaseRouteInfoMapper>(
       () => _i634.AppRouteInfoMapper(),
     );
-    gh.lazySingleton<_i802.AppNavigator>(
-      () => _i811.AppNavigatorImpl(
-        gh<_i487.AppRouter>(),
-        gh<_i401.BaseRouteInfoMapper>(),
-      ),
+    gh.lazySingleton<_i344.BasePopupInfoMapper>(
+      () => _i668.AppPopupInfoMapper(),
     );
     gh.factory<_i322.SaveLanguageUseCase>(
       () => _i322.SaveLanguageUseCase(gh<_i795.AppPreferences>()),
@@ -60,6 +61,13 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i877.SettingsBloc>(
       () => _i877.SettingsBloc(gh<_i795.AppPreferences>()),
+    );
+    gh.lazySingleton<_i802.AppNavigator>(
+      () => _i811.AppNavigatorImpl(
+        gh<_i487.AppRouter>(),
+        gh<_i401.BaseRouteInfoMapper>(),
+        gh<_i344.BasePopupInfoMapper>(),
+      ),
     );
     gh.lazySingleton<_i484.AppBloc>(
       () => _i484.AppBloc(gh<_i322.SaveLanguageUseCase>()),

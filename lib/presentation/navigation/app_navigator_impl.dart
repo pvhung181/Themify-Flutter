@@ -3,39 +3,47 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart' as m;
 import 'package:injectable/injectable.dart';
+import 'package:themify/domain/navigation/app_popup_info.dart';
 import 'package:themify/presentation/navigation/routes/app_router.dart';
 import 'package:themify/presentation/navigation/routes/app_router.gr.dart';
 
 import '../../domain/navigation/app_navigator.dart';
 import '../../domain/navigation/app_route_info.dart';
+import 'base/base_popup_info_mapper.dart';
 import 'base/base_route_info_mapper.dart';
 
 @LazySingleton(as: AppNavigator)
-class AppNavigatorImpl extends AppNavigator  {
+class AppNavigatorImpl extends AppNavigator {
   AppNavigatorImpl(
     this._appRouter,
     this._appRouteInfoMapper,
+    this._appPopupInfoMapper,
   );
 
   final tabRoutes = const [
     ThemesRoute(),
     WidgetsRoute(),
     IconsRoute(),
-    WallpapersRoute()
+    WallpapersRoute(),
   ];
 
   TabsRouter? tabsRouter;
 
   final AppRouter _appRouter;
   final BaseRouteInfoMapper _appRouteInfoMapper;
+  final BasePopupInfoMapper _appPopupInfoMapper;
 
-  StackRouter? get _currentTabRouter => tabsRouter?.stackRouterOfIndex(currentBottomTab);
+  StackRouter? get _currentTabRouter =>
+      tabsRouter?.stackRouterOfIndex(currentBottomTab);
 
-  StackRouter get _currentTabRouterOrRootRouter => _currentTabRouter ?? _appRouter;
+  StackRouter get _currentTabRouterOrRootRouter =>
+      _currentTabRouter ?? _appRouter;
 
-  m.BuildContext get _rootRouterContext => _appRouter.navigatorKey.currentContext!;
+  m.BuildContext get _rootRouterContext =>
+      _appRouter.navigatorKey.currentContext!;
 
-  m.BuildContext? get _currentTabRouterContext => _currentTabRouter?.navigatorKey.currentContext;
+  m.BuildContext? get _currentTabRouterContext =>
+      _currentTabRouter?.navigatorKey.currentContext;
 
   m.BuildContext get _currentTabContextOrRootContext =>
       _currentTabRouterContext ?? _rootRouterContext;
@@ -53,10 +61,9 @@ class AppNavigatorImpl extends AppNavigator  {
   bool get canPopSelfOrChildren => _appRouter.canPop();
 
   @override
-  String getCurrentRouteName({bool useRootNavigator = false}) =>
-      AutoRouter.of(useRootNavigator ? _rootRouterContext : _currentTabContextOrRootContext)
-          .current
-          .name;
+  String getCurrentRouteName({bool useRootNavigator = false}) => AutoRouter.of(
+    useRootNavigator ? _rootRouterContext : _currentTabContextOrRootContext,
+  ).current.name;
 
   @override
   void popUntilRootOfCurrentBottomTab() {
@@ -98,7 +105,10 @@ class AppNavigatorImpl extends AppNavigator  {
   }
 
   @override
-  Future<void> pop<T extends Object?>({T? result, bool useRootNavigator = false}) async {
+  Future<void> pop<T extends Object?>({
+    T? result,
+    bool useRootNavigator = false,
+  }) async {
     return useRootNavigator
         ? _appRouter.pop<T>(result)
         : _currentTabRouterOrRootRouter.pop<T>(result);
@@ -111,7 +121,10 @@ class AppNavigatorImpl extends AppNavigator  {
     bool useRootNavigator = false,
   }) {
     return useRootNavigator
-        ? _appRouter.popAndPush<T, R>(_appRouteInfoMapper.map(appRouteInfo), result: result)
+        ? _appRouter.popAndPush<T, R>(
+            _appRouteInfoMapper.map(appRouteInfo),
+            result: result,
+          )
         : _currentTabRouterOrRootRouter.popAndPush<T, R>(
             _appRouteInfoMapper.map(appRouteInfo),
             result: result,
@@ -120,7 +133,9 @@ class AppNavigatorImpl extends AppNavigator  {
 
   @override
   void popUntilRoot({bool useRootNavigator = false}) {
-       useRootNavigator ? _appRouter.popUntilRoot() : _currentTabRouterOrRootRouter.popUntilRoot();
+    useRootNavigator
+        ? _appRouter.popUntilRoot()
+        : _currentTabRouterOrRootRouter.popUntilRoot();
   }
 
   @override
@@ -139,15 +154,51 @@ class AppNavigatorImpl extends AppNavigator  {
   }
 
   @override
-  Future<void> popAndPushAll(List<AppRouteInfo> listAppRouteInfo, {bool useRootNavigator = false}) {
+  Future<void> popAndPushAll(
+    List<AppRouteInfo> listAppRouteInfo, {
+    bool useRootNavigator = false,
+  }) {
     return useRootNavigator
-        ? _appRouter.popAndPushAll(_appRouteInfoMapper.mapList(listAppRouteInfo))
-        : _currentTabRouterOrRootRouter
-            .popAndPushAll(_appRouteInfoMapper.mapList(listAppRouteInfo));
+        ? _appRouter.popAndPushAll(
+            _appRouteInfoMapper.mapList(listAppRouteInfo),
+          )
+        : _currentTabRouterOrRootRouter.popAndPushAll(
+            _appRouteInfoMapper.mapList(listAppRouteInfo),
+          );
   }
 
   @override
   bool removeLast() {
     return _appRouter.removeLast();
+  }
+
+  @override
+  Future<T?> showDialog<T extends Object?>(
+    AppPopupInfo appPopupInfo, {
+    bool barrierDismissible = true,
+    bool useSafeArea = false,
+    bool useRootNavigator = true,
+  }) {
+    // if (_shownPopups.containsKey(appPopupInfo)) {
+    //   return _shownPopups[appPopupInfo]!.future.safeCast();
+    // }
+    // _shownPopups[appPopupInfo] = Completer<T?>();
+
+    return m.showDialog<T>(
+      context: useRootNavigator
+          ? _rootRouterContext
+          : _currentTabContextOrRootContext,
+      builder: (_) => m.PopScope(
+        canPop: true,
+        onPopInvokedWithResult: (didPop, result) {
+          // _shownPopups.remove(appPopupInfo);
+
+        },
+        child: _appPopupInfoMapper.map(appPopupInfo, this),
+      ),
+      useRootNavigator: useRootNavigator,
+      barrierDismissible: barrierDismissible,
+      useSafeArea: useSafeArea,
+    );
   }
 }

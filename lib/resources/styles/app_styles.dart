@@ -6,7 +6,7 @@ import '../dimens/dimens.dart';
 class AppStyles {
   const AppStyles._();
 
-  static TextStyle sfCompatBold = TextStyle(
+  static TextStyle sfCompatSemibold = TextStyle(
     fontFamily: FontFamily.sfCompact,
     fontWeight: FontWeight.w600,
   );
