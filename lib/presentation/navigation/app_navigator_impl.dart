@@ -201,4 +201,26 @@ class AppNavigatorImpl extends AppNavigator {
       useSafeArea: useSafeArea,
     );
   }
+
+  @override
+  Future<T?> showModalBottomSheet<T extends Object?>(
+      AppPopupInfo appPopupInfo, {
+        bool isScrollControlled = false,
+        bool useRootNavigator = false,
+        bool isDismissible = true,
+        bool enableDrag = true,
+        m.Color barrierColor = m.Colors.black54,
+        m.Color? backgroundColor,
+      }) {
+    return m.showModalBottomSheet<T>(
+      context: useRootNavigator ? _rootRouterContext : _currentTabContextOrRootContext,
+      builder: (_) => _appPopupInfoMapper.map(appPopupInfo, this),
+      isDismissible: isDismissible,
+      enableDrag: enableDrag,
+      useRootNavigator: useRootNavigator,
+      isScrollControlled: isScrollControlled,
+      backgroundColor: backgroundColor,
+      barrierColor: barrierColor,
+    );
+  }
 }

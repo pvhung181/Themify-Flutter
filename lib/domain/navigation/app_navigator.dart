@@ -1,4 +1,6 @@
 
+import 'package:flutter/material.dart';
+
 import 'app_popup_info.dart';
 import 'app_route_info.dart';
 
@@ -51,5 +53,15 @@ abstract class AppNavigator {
         bool barrierDismissible = true,
         bool useSafeArea = false,
         bool useRootNavigator = true,
+      });
+
+  Future<T?> showModalBottomSheet<T extends Object?>(
+      AppPopupInfo appPopupInfo, {
+        bool isScrollControlled = false,
+        bool useRootNavigator = false,
+        bool isDismissible = true,
+        bool enableDrag = true,
+        Color barrierColor = Colors.black54,
+        Color? backgroundColor,
       });
 }

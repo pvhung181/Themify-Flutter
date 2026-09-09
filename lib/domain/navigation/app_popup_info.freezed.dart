@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppPopupInfo {
 
- int get maxRate; Func1<int, void>? get onRateClick; Func0<void>? get onCancelClick;
+ Func0<void>? get onCancelClick;
 /// Create a copy of AppPopupInfo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $AppPopupInfoCopyWith<AppPopupInfo> get copyWith => _$AppPopupInfoCopyWithImpl<A
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppPopupInfo&&(identical(other.maxRate, maxRate) || other.maxRate == maxRate)&&(identical(other.onRateClick, onRateClick) || other.onRateClick == onRateClick)&&(identical(other.onCancelClick, onCancelClick) || other.onCancelClick == onCancelClick));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppPopupInfo&&(identical(other.onCancelClick, onCancelClick) || other.onCancelClick == onCancelClick));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,maxRate,onRateClick,onCancelClick);
+int get hashCode => Object.hash(runtimeType,onCancelClick);
 
 @override
 String toString() {
-  return 'AppPopupInfo(maxRate: $maxRate, onRateClick: $onRateClick, onCancelClick: $onCancelClick)';
+  return 'AppPopupInfo(onCancelClick: $onCancelClick)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $AppPopupInfoCopyWith<$Res>  {
   factory $AppPopupInfoCopyWith(AppPopupInfo value, $Res Function(AppPopupInfo) _then) = _$AppPopupInfoCopyWithImpl;
 @useResult
 $Res call({
- int maxRate, Func1<int, void>? onRateClick, Func0<void>? onCancelClick
+ Func0<void> onCancelClick
 });
 
 
@@ -62,12 +62,10 @@ class _$AppPopupInfoCopyWithImpl<$Res>
 
 /// Create a copy of AppPopupInfo
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? maxRate = null,Object? onRateClick = freezed,Object? onCancelClick = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? onCancelClick = null,}) {
   return _then(_self.copyWith(
-maxRate: null == maxRate ? _self.maxRate : maxRate // ignore: cast_nullable_to_non_nullable
-as int,onRateClick: freezed == onRateClick ? _self.onRateClick : onRateClick // ignore: cast_nullable_to_non_nullable
-as Func1<int, void>?,onCancelClick: freezed == onCancelClick ? _self.onCancelClick : onCancelClick // ignore: cast_nullable_to_non_nullable
-as Func0<void>?,
+onCancelClick: null == onCancelClick ? _self.onCancelClick! : onCancelClick // ignore: cast_nullable_to_non_nullable
+as Func0<void>,
   ));
 }
 
@@ -88,11 +86,12 @@ extension AppPopupInfoPatterns on AppPopupInfo {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _RateDialog value)?  rateDialog,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _RateDialog value)?  rateDialog,TResult Function( _PhotoRefreshBottomSheet value)?  photoRefreshBottomSheet,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _RateDialog() when rateDialog != null:
-return rateDialog(_that);case _:
+return rateDialog(_that);case _PhotoRefreshBottomSheet() when photoRefreshBottomSheet != null:
+return photoRefreshBottomSheet(_that);case _:
   return orElse();
 
 }
@@ -110,11 +109,12 @@ return rateDialog(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _RateDialog value)  rateDialog,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _RateDialog value)  rateDialog,required TResult Function( _PhotoRefreshBottomSheet value)  photoRefreshBottomSheet,}){
 final _that = this;
 switch (_that) {
 case _RateDialog():
-return rateDialog(_that);case _:
+return rateDialog(_that);case _PhotoRefreshBottomSheet():
+return photoRefreshBottomSheet(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -131,11 +131,12 @@ return rateDialog(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _RateDialog value)?  rateDialog,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _RateDialog value)?  rateDialog,TResult? Function( _PhotoRefreshBottomSheet value)?  photoRefreshBottomSheet,}){
 final _that = this;
 switch (_that) {
 case _RateDialog() when rateDialog != null:
-return rateDialog(_that);case _:
+return rateDialog(_that);case _PhotoRefreshBottomSheet() when photoRefreshBottomSheet != null:
+return photoRefreshBottomSheet(_that);case _:
   return null;
 
 }
@@ -152,10 +153,11 @@ return rateDialog(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( int maxRate,  Func1<int, void>? onRateClick,  Func0<void>? onCancelClick)?  rateDialog,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( int maxRate,  Func1<int, void>? onRateClick,  Func0<void>? onCancelClick)?  rateDialog,TResult Function( PhotoRefresh initialMode,  Func0<void> onCancelClick,  Func1<PhotoRefresh, void> onModeClick)?  photoRefreshBottomSheet,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RateDialog() when rateDialog != null:
-return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _:
+return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _PhotoRefreshBottomSheet() when photoRefreshBottomSheet != null:
+return photoRefreshBottomSheet(_that.initialMode,_that.onCancelClick,_that.onModeClick);case _:
   return orElse();
 
 }
@@ -173,10 +175,11 @@ return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( int maxRate,  Func1<int, void>? onRateClick,  Func0<void>? onCancelClick)  rateDialog,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( int maxRate,  Func1<int, void>? onRateClick,  Func0<void>? onCancelClick)  rateDialog,required TResult Function( PhotoRefresh initialMode,  Func0<void> onCancelClick,  Func1<PhotoRefresh, void> onModeClick)  photoRefreshBottomSheet,}) {final _that = this;
 switch (_that) {
 case _RateDialog():
-return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _:
+return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _PhotoRefreshBottomSheet():
+return photoRefreshBottomSheet(_that.initialMode,_that.onCancelClick,_that.onModeClick);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -193,10 +196,11 @@ return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( int maxRate,  Func1<int, void>? onRateClick,  Func0<void>? onCancelClick)?  rateDialog,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( int maxRate,  Func1<int, void>? onRateClick,  Func0<void>? onCancelClick)?  rateDialog,TResult? Function( PhotoRefresh initialMode,  Func0<void> onCancelClick,  Func1<PhotoRefresh, void> onModeClick)?  photoRefreshBottomSheet,}) {final _that = this;
 switch (_that) {
 case _RateDialog() when rateDialog != null:
-return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _:
+return rateDialog(_that.maxRate,_that.onRateClick,_that.onCancelClick);case _PhotoRefreshBottomSheet() when photoRefreshBottomSheet != null:
+return photoRefreshBottomSheet(_that.initialMode,_that.onCancelClick,_that.onModeClick);case _:
   return null;
 
 }
@@ -211,8 +215,8 @@ class _RateDialog implements AppPopupInfo {
   const _RateDialog({this.maxRate = 5, this.onRateClick, this.onCancelClick});
   
 
-@override@JsonKey() final  int maxRate;
-@override final  Func1<int, void>? onRateClick;
+@JsonKey() final  int maxRate;
+ final  Func1<int, void>? onRateClick;
 @override final  Func0<void>? onCancelClick;
 
 /// Create a copy of AppPopupInfo
@@ -268,6 +272,76 @@ maxRate: null == maxRate ? _self.maxRate : maxRate // ignore: cast_nullable_to_n
 as int,onRateClick: freezed == onRateClick ? _self.onRateClick : onRateClick // ignore: cast_nullable_to_non_nullable
 as Func1<int, void>?,onCancelClick: freezed == onCancelClick ? _self.onCancelClick : onCancelClick // ignore: cast_nullable_to_non_nullable
 as Func0<void>?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _PhotoRefreshBottomSheet implements AppPopupInfo {
+  const _PhotoRefreshBottomSheet({required this.initialMode, required this.onCancelClick, required this.onModeClick});
+  
+
+ final  PhotoRefresh initialMode;
+@override final  Func0<void> onCancelClick;
+ final  Func1<PhotoRefresh, void> onModeClick;
+
+/// Create a copy of AppPopupInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PhotoRefreshBottomSheetCopyWith<_PhotoRefreshBottomSheet> get copyWith => __$PhotoRefreshBottomSheetCopyWithImpl<_PhotoRefreshBottomSheet>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PhotoRefreshBottomSheet&&(identical(other.initialMode, initialMode) || other.initialMode == initialMode)&&(identical(other.onCancelClick, onCancelClick) || other.onCancelClick == onCancelClick)&&(identical(other.onModeClick, onModeClick) || other.onModeClick == onModeClick));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,initialMode,onCancelClick,onModeClick);
+
+@override
+String toString() {
+  return 'AppPopupInfo.photoRefreshBottomSheet(initialMode: $initialMode, onCancelClick: $onCancelClick, onModeClick: $onModeClick)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PhotoRefreshBottomSheetCopyWith<$Res> implements $AppPopupInfoCopyWith<$Res> {
+  factory _$PhotoRefreshBottomSheetCopyWith(_PhotoRefreshBottomSheet value, $Res Function(_PhotoRefreshBottomSheet) _then) = __$PhotoRefreshBottomSheetCopyWithImpl;
+@override @useResult
+$Res call({
+ PhotoRefresh initialMode, Func0<void> onCancelClick, Func1<PhotoRefresh, void> onModeClick
+});
+
+
+
+
+}
+/// @nodoc
+class __$PhotoRefreshBottomSheetCopyWithImpl<$Res>
+    implements _$PhotoRefreshBottomSheetCopyWith<$Res> {
+  __$PhotoRefreshBottomSheetCopyWithImpl(this._self, this._then);
+
+  final _PhotoRefreshBottomSheet _self;
+  final $Res Function(_PhotoRefreshBottomSheet) _then;
+
+/// Create a copy of AppPopupInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? initialMode = null,Object? onCancelClick = null,Object? onModeClick = null,}) {
+  return _then(_PhotoRefreshBottomSheet(
+initialMode: null == initialMode ? _self.initialMode : initialMode // ignore: cast_nullable_to_non_nullable
+as PhotoRefresh,onCancelClick: null == onCancelClick ? _self.onCancelClick : onCancelClick // ignore: cast_nullable_to_non_nullable
+as Func0<void>,onModeClick: null == onModeClick ? _self.onModeClick : onModeClick // ignore: cast_nullable_to_non_nullable
+as Func1<PhotoRefresh, void>,
   ));
 }
 
