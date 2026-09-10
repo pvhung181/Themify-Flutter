@@ -44,7 +44,7 @@ class PhotoRefreshBottomSheet extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(12),
                           child: Text(
-                            "${items[index].name} ${AppLocalizations.of(context).minute}",
+                            "${items[index].getModeValue()} ${AppLocalizations.of(context).minute}",
                             style: AppStyles.sfCompatRegular.copyWith(
                               color: initialTime == items[index]
                                   ? appColors.primary200

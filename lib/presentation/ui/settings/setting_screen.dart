@@ -38,7 +38,7 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
   @override
   Widget buildPage(BuildContext context) {
     AppColors appColors = AppColors.of(context);
-    AppLocalizations? l10n = AppLocalizations.of(context);
+    AppLocalizations l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -73,17 +73,19 @@ class _SettingScreenState extends BasePageState<SettingScreen, SettingsBloc> {
                         return SettingValueItem(
                           icon: Assets.images.icTimeStart.path,
                           title: l10n.photo_refresh,
-                          value: state.photoRefresh.name,
+                          value: "${state.photoRefresh.getModeValue()} ${l10n.minute}",
                           isShowDivider: true,
                           onClick: () {
                             navigator.showModalBottomSheet(
                               backgroundColor: Colors.transparent,
                               AppPopupInfo.photoRefreshBottomSheet(
-                                initialMode: PhotoRefresh.mode_1m,
+                                initialMode: bloc.state.photoRefresh,
                                 onCancelClick: Func0(() {
                                   navigator.pop();
                                 }),
                                 onModeClick: Func1((mode) {
+                                  bloc.add(ChangePhotoRefreshEvent(mode));
+                                  navigator.pop();
                                 }),
                               ),
                             );
