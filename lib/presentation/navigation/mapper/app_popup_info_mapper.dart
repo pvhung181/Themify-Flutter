@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 import 'package:themify/presentation/common_view/popup/photo_refresh_bottom_sheet.dart';
 import 'package:themify/presentation/common_view/popup/rate_dialog.dart';
+import 'package:themify/resources/l10n/app_localizations.dart';
 
 import '../../../domain/navigation/app_navigator.dart';
 import '../../../domain/navigation/app_popup_info.dart';
