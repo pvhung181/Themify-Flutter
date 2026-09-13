@@ -24,6 +24,7 @@ dependencies:
   flutter_gen: ^5.15.0
   http: ^1.6.0
   json_annotation: ^4.12.0
+  sqflite: ^2.4.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
