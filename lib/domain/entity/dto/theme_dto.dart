@@ -25,7 +25,7 @@ abstract class ThemeDto with _$ThemeDto {
     @JsonKey(name: 'version_update')
     required int versionUpdate,
 
-    @JsonKey(name: 'is_pro')
+    @JsonKey(name: 'isPro')
     required bool isPro,
 
     @Default([])
