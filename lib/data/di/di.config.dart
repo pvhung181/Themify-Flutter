@@ -11,7 +11,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:themify/data/db/dao/theme_dao.dart' as _i251;
 import 'package:themify/data/preferences/app_preferences.dart' as _i795;
+import 'package:themify/data/repository/theme_repository_impl.dart' as _i527;
 import 'package:themify/domain/navigation/app_navigator.dart' as _i802;
 import 'package:themify/domain/use_case/save_language_use_case.dart' as _i322;
 import 'package:themify/presentation/app/bloc/app_bloc.dart' as _i484;
@@ -45,7 +47,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i48.CommonBloc>(() => _i48.CommonBloc());
     gh.factory<_i899.HomeBloc>(() => _i899.HomeBloc());
     gh.factory<_i264.SplashBloc>(() => _i264.SplashBloc());
+    gh.lazySingleton<_i251.ThemeDao>(() => _i251.ThemeDao());
     gh.lazySingleton<_i795.AppPreferences>(() => _i795.AppPreferences());
+    gh.lazySingleton<_i527.ThemeRepositoryImpl>(
+      () => _i527.ThemeRepositoryImpl(),
+    );
     gh.lazySingleton<_i487.AppRouter>(() => _i487.AppRouter());
     gh.lazySingleton<_i401.BaseRouteInfoMapper>(
       () => _i634.AppRouteInfoMapper(),
@@ -60,7 +66,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i887.LanguageBloc(gh<_i795.AppPreferences>()),
     );
     gh.factory<_i877.SettingsBloc>(
-      () => _i877.SettingsBloc(gh<_i795.AppPreferences>()),
+      () => _i877.SettingsBloc(
+        gh<_i795.AppPreferences>(),
+        gh<_i527.ThemeRepositoryImpl>(),
+      ),
     );
     gh.lazySingleton<_i802.AppNavigator>(
       () => _i811.AppNavigatorImpl(
