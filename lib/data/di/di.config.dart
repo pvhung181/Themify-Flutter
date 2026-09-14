@@ -49,12 +49,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i264.SplashBloc>(() => _i264.SplashBloc());
     gh.lazySingleton<_i251.ThemeDao>(() => _i251.ThemeDao());
     gh.lazySingleton<_i795.AppPreferences>(() => _i795.AppPreferences());
-    gh.lazySingleton<_i527.ThemeRepositoryImpl>(
-      () => _i527.ThemeRepositoryImpl(),
-    );
     gh.lazySingleton<_i487.AppRouter>(() => _i487.AppRouter());
     gh.lazySingleton<_i401.BaseRouteInfoMapper>(
       () => _i634.AppRouteInfoMapper(),
+    );
+    gh.lazySingleton<_i527.ThemeRepositoryImpl>(
+      () => _i527.ThemeRepositoryImpl(gh<_i251.ThemeDao>()),
     );
     gh.lazySingleton<_i344.BasePopupInfoMapper>(
       () => _i668.AppPopupInfoMapper(),

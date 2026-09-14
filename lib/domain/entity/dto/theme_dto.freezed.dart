@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ThemeDto {
 
-@JsonKey(name: 'icon_reward') bool get iconReward;@JsonKey(name: 'widget_reward') bool get widgetReward;@JsonKey(name: 'id_theme') int get idTheme; String get wallpaper;@JsonKey(name: 'wallpaper_reward') bool get wallpaperReward;@JsonKey(name: 'version_update') int get versionUpdate;@JsonKey(name: 'is_pro') bool get isPro; List<String> get fonts;@JsonKey(name: 'id_category') int get idCategory;@JsonKey(name: 'icon_pack') String get iconPack; String get widget; String get thumb;
+@JsonKey(name: 'icon_reward') bool get iconReward;@JsonKey(name: 'widget_reward') bool get widgetReward;@JsonKey(name: 'id_theme') int get idTheme; String get wallpaper;@JsonKey(name: 'wallpaper_reward') bool get wallpaperReward;@JsonKey(name: 'version_update') int get versionUpdate;@JsonKey(name: 'isPro') bool get isPro; List<String> get fonts;@JsonKey(name: 'id_category') int get idCategory;@JsonKey(name: 'icon_pack') String get iconPack; String get widget; String get thumb;
 /// Create a copy of ThemeDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ThemeDtoCopyWith<$Res>  {
   factory $ThemeDtoCopyWith(ThemeDto value, $Res Function(ThemeDto) _then) = _$ThemeDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'icon_reward') bool iconReward,@JsonKey(name: 'widget_reward') bool widgetReward,@JsonKey(name: 'id_theme') int idTheme, String wallpaper,@JsonKey(name: 'wallpaper_reward') bool wallpaperReward,@JsonKey(name: 'version_update') int versionUpdate,@JsonKey(name: 'is_pro') bool isPro, List<String> fonts,@JsonKey(name: 'id_category') int idCategory,@JsonKey(name: 'icon_pack') String iconPack, String widget, String thumb
+@JsonKey(name: 'icon_reward') bool iconReward,@JsonKey(name: 'widget_reward') bool widgetReward,@JsonKey(name: 'id_theme') int idTheme, String wallpaper,@JsonKey(name: 'wallpaper_reward') bool wallpaperReward,@JsonKey(name: 'version_update') int versionUpdate,@JsonKey(name: 'isPro') bool isPro, List<String> fonts,@JsonKey(name: 'id_category') int idCategory,@JsonKey(name: 'icon_pack') String iconPack, String widget, String thumb
 });
 
 
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'icon_reward')  bool iconReward, @JsonKey(name: 'widget_reward')  bool widgetReward, @JsonKey(name: 'id_theme')  int idTheme,  String wallpaper, @JsonKey(name: 'wallpaper_reward')  bool wallpaperReward, @JsonKey(name: 'version_update')  int versionUpdate, @JsonKey(name: 'is_pro')  bool isPro,  List<String> fonts, @JsonKey(name: 'id_category')  int idCategory, @JsonKey(name: 'icon_pack')  String iconPack,  String widget,  String thumb)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'icon_reward')  bool iconReward, @JsonKey(name: 'widget_reward')  bool widgetReward, @JsonKey(name: 'id_theme')  int idTheme,  String wallpaper, @JsonKey(name: 'wallpaper_reward')  bool wallpaperReward, @JsonKey(name: 'version_update')  int versionUpdate, @JsonKey(name: 'isPro')  bool isPro,  List<String> fonts, @JsonKey(name: 'id_category')  int idCategory, @JsonKey(name: 'icon_pack')  String iconPack,  String widget,  String thumb)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ThemeDto() when $default != null:
 return $default(_that.iconReward,_that.widgetReward,_that.idTheme,_that.wallpaper,_that.wallpaperReward,_that.versionUpdate,_that.isPro,_that.fonts,_that.idCategory,_that.iconPack,_that.widget,_that.thumb);case _:
@@ -185,7 +185,7 @@ return $default(_that.iconReward,_that.widgetReward,_that.idTheme,_that.wallpape
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'icon_reward')  bool iconReward, @JsonKey(name: 'widget_reward')  bool widgetReward, @JsonKey(name: 'id_theme')  int idTheme,  String wallpaper, @JsonKey(name: 'wallpaper_reward')  bool wallpaperReward, @JsonKey(name: 'version_update')  int versionUpdate, @JsonKey(name: 'is_pro')  bool isPro,  List<String> fonts, @JsonKey(name: 'id_category')  int idCategory, @JsonKey(name: 'icon_pack')  String iconPack,  String widget,  String thumb)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'icon_reward')  bool iconReward, @JsonKey(name: 'widget_reward')  bool widgetReward, @JsonKey(name: 'id_theme')  int idTheme,  String wallpaper, @JsonKey(name: 'wallpaper_reward')  bool wallpaperReward, @JsonKey(name: 'version_update')  int versionUpdate, @JsonKey(name: 'isPro')  bool isPro,  List<String> fonts, @JsonKey(name: 'id_category')  int idCategory, @JsonKey(name: 'icon_pack')  String iconPack,  String widget,  String thumb)  $default,) {final _that = this;
 switch (_that) {
 case _ThemeDto():
 return $default(_that.iconReward,_that.widgetReward,_that.idTheme,_that.wallpaper,_that.wallpaperReward,_that.versionUpdate,_that.isPro,_that.fonts,_that.idCategory,_that.iconPack,_that.widget,_that.thumb);case _:
@@ -205,7 +205,7 @@ return $default(_that.iconReward,_that.widgetReward,_that.idTheme,_that.wallpape
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'icon_reward')  bool iconReward, @JsonKey(name: 'widget_reward')  bool widgetReward, @JsonKey(name: 'id_theme')  int idTheme,  String wallpaper, @JsonKey(name: 'wallpaper_reward')  bool wallpaperReward, @JsonKey(name: 'version_update')  int versionUpdate, @JsonKey(name: 'is_pro')  bool isPro,  List<String> fonts, @JsonKey(name: 'id_category')  int idCategory, @JsonKey(name: 'icon_pack')  String iconPack,  String widget,  String thumb)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'icon_reward')  bool iconReward, @JsonKey(name: 'widget_reward')  bool widgetReward, @JsonKey(name: 'id_theme')  int idTheme,  String wallpaper, @JsonKey(name: 'wallpaper_reward')  bool wallpaperReward, @JsonKey(name: 'version_update')  int versionUpdate, @JsonKey(name: 'isPro')  bool isPro,  List<String> fonts, @JsonKey(name: 'id_category')  int idCategory, @JsonKey(name: 'icon_pack')  String iconPack,  String widget,  String thumb)?  $default,) {final _that = this;
 switch (_that) {
 case _ThemeDto() when $default != null:
 return $default(_that.iconReward,_that.widgetReward,_that.idTheme,_that.wallpaper,_that.wallpaperReward,_that.versionUpdate,_that.isPro,_that.fonts,_that.idCategory,_that.iconPack,_that.widget,_that.thumb);case _:
@@ -220,7 +220,7 @@ return $default(_that.iconReward,_that.widgetReward,_that.idTheme,_that.wallpape
 @JsonSerializable()
 
 class _ThemeDto extends ThemeDto {
-  const _ThemeDto({@JsonKey(name: 'icon_reward') required this.iconReward, @JsonKey(name: 'widget_reward') required this.widgetReward, @JsonKey(name: 'id_theme') required this.idTheme, required this.wallpaper, @JsonKey(name: 'wallpaper_reward') required this.wallpaperReward, @JsonKey(name: 'version_update') required this.versionUpdate, @JsonKey(name: 'is_pro') required this.isPro, final  List<String> fonts = const [], @JsonKey(name: 'id_category') required this.idCategory, @JsonKey(name: 'icon_pack') required this.iconPack, required this.widget, required this.thumb}): _fonts = fonts,super._();
+  const _ThemeDto({@JsonKey(name: 'icon_reward') required this.iconReward, @JsonKey(name: 'widget_reward') required this.widgetReward, @JsonKey(name: 'id_theme') required this.idTheme, required this.wallpaper, @JsonKey(name: 'wallpaper_reward') required this.wallpaperReward, @JsonKey(name: 'version_update') required this.versionUpdate, @JsonKey(name: 'isPro') required this.isPro, final  List<String> fonts = const [], @JsonKey(name: 'id_category') required this.idCategory, @JsonKey(name: 'icon_pack') required this.iconPack, required this.widget, required this.thumb}): _fonts = fonts,super._();
   factory _ThemeDto.fromJson(Map<String, dynamic> json) => _$ThemeDtoFromJson(json);
 
 @override@JsonKey(name: 'icon_reward') final  bool iconReward;
@@ -229,7 +229,7 @@ class _ThemeDto extends ThemeDto {
 @override final  String wallpaper;
 @override@JsonKey(name: 'wallpaper_reward') final  bool wallpaperReward;
 @override@JsonKey(name: 'version_update') final  int versionUpdate;
-@override@JsonKey(name: 'is_pro') final  bool isPro;
+@override@JsonKey(name: 'isPro') final  bool isPro;
  final  List<String> _fonts;
 @override@JsonKey() List<String> get fonts {
   if (_fonts is EqualUnmodifiableListView) return _fonts;
@@ -275,7 +275,7 @@ abstract mixin class _$ThemeDtoCopyWith<$Res> implements $ThemeDtoCopyWith<$Res>
   factory _$ThemeDtoCopyWith(_ThemeDto value, $Res Function(_ThemeDto) _then) = __$ThemeDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'icon_reward') bool iconReward,@JsonKey(name: 'widget_reward') bool widgetReward,@JsonKey(name: 'id_theme') int idTheme, String wallpaper,@JsonKey(name: 'wallpaper_reward') bool wallpaperReward,@JsonKey(name: 'version_update') int versionUpdate,@JsonKey(name: 'is_pro') bool isPro, List<String> fonts,@JsonKey(name: 'id_category') int idCategory,@JsonKey(name: 'icon_pack') String iconPack, String widget, String thumb
+@JsonKey(name: 'icon_reward') bool iconReward,@JsonKey(name: 'widget_reward') bool widgetReward,@JsonKey(name: 'id_theme') int idTheme, String wallpaper,@JsonKey(name: 'wallpaper_reward') bool wallpaperReward,@JsonKey(name: 'version_update') int versionUpdate,@JsonKey(name: 'isPro') bool isPro, List<String> fonts,@JsonKey(name: 'id_category') int idCategory,@JsonKey(name: 'icon_pack') String iconPack, String widget, String thumb
 });
 
 

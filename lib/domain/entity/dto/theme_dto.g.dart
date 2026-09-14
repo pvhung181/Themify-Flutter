@@ -13,7 +13,7 @@ _ThemeDto _$ThemeDtoFromJson(Map<String, dynamic> json) => _ThemeDto(
   wallpaper: json['wallpaper'] as String,
   wallpaperReward: json['wallpaper_reward'] as bool,
   versionUpdate: (json['version_update'] as num).toInt(),
-  isPro: json['is_pro'] as bool,
+  isPro: json['isPro'] as bool,
   fonts:
       (json['fonts'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       const [],
@@ -30,7 +30,7 @@ Map<String, dynamic> _$ThemeDtoToJson(_ThemeDto instance) => <String, dynamic>{
   'wallpaper': instance.wallpaper,
   'wallpaper_reward': instance.wallpaperReward,
   'version_update': instance.versionUpdate,
-  'is_pro': instance.isPro,
+  'isPro': instance.isPro,
   'fonts': instance.fonts,
   'id_category': instance.idCategory,
   'icon_pack': instance.iconPack,
