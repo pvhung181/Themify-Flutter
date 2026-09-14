@@ -66,10 +66,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i887.LanguageBloc(gh<_i795.AppPreferences>()),
     );
     gh.factory<_i877.SettingsBloc>(
-      () => _i877.SettingsBloc(
-        gh<_i795.AppPreferences>(),
-        gh<_i527.ThemeRepositoryImpl>(),
-      ),
+      () => _i877.SettingsBloc(gh<_i795.AppPreferences>()),
     );
     gh.lazySingleton<_i802.AppNavigator>(
       () => _i811.AppNavigatorImpl(
